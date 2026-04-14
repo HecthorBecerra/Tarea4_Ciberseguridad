@@ -1,0 +1,34 @@
+{
+    "repos_dir": "data/repos",
+    "output_dir": "data/results",
+
+    "repositories": [
+        "https://github.com/pallets/flask"
+    ],
+
+    "organizations": [],
+
+    "clone_options": {
+        "max_inactive_days": 30,
+        "skip_archived": true,
+        "skip_forks": true,
+        "max_repos": 50
+    },
+
+    "tools": {
+        "syft": {
+            "enabled": true,
+            "output_format": "json"
+        },
+        "grype": {
+            "enabled": true,
+            "output_format": "json",
+            "update_db": true
+        },
+        "codeql": {
+            "enabled": true,
+            "output_format": "json",
+            "supported_languages": ["python", "javascript", "java", "cpp", "csharp"]
+        }
+    }
+}

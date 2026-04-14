@@ -1,10 +1,9 @@
 {
-    "name": "Python Ciberseguridad Dev Container",
+    "name": "Security Analyzer Dev Container",
     "build": {
         "dockerfile": "Dockerfile",
         "context": "."
     },
-
     "customizations": {
         "vscode": {
             "settings": {
@@ -12,10 +11,10 @@
                 "python.formatting.provider": "black",
                 "editor.formatOnSave": true,
                 "notebook.formatOnSave.enabled": true,
-                "jupyter.notebook.defaultKernel": "Python (ciberseguridad)",
+                "jupyter.notebook.defaultKernel": "Python (security-analyzer)",
                 "jupyter.kernels.filter": [
                     {
-                        "name": "ciberseguridad"
+                        "name": "security-analyzer"
                     }
                 ]
             },
@@ -23,11 +22,12 @@
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "ms-python.black-formatter",
-                "ms-toolsai.jupyter"
+                "ms-toolsai.jupyter",
+                "ms-vscode.makefile-tools"
             ]
         }
     },
-    "postCreateCommand": "touch .welcome_flag && uv sync && uv run python -m ipykernel install --user --name ciberseguridad --display-name 'Python (ciberseguridad)' && codeql pack download codeql/python-queries codeql/javascript-queries codeql/java-queries || true && grype db update || true && uv run scripts/add_submodules.py",
+    "postCreateCommand": "uv sync && uv run python -m ipykernel install --user --name security-analyzer --display-name 'Python (security-analyzer)' && grype db update || true",
     "remoteUser": "vscode",
-    "runArgs": ["--name", "python-ciberseguridad-dev-container"]
+    "runArgs": ["--name", "security-analyzer-dev-container"]
 }

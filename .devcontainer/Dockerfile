@@ -1,17 +1,16 @@
-# Microsoft Python Dev Container image
+# ===== BASE IMAGE =====
 FROM mcr.microsoft.com/devcontainers/python:1-3.11-bullseye
 
-# Install uv
+# ===== INSTALAR UV PACKAGE MANAGER =====
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# Install syft
+# ===== INSTALAR SYFT (SBOM Generator) =====
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
 
-# Install Grype (Software Vulnerability Scanner)
+# ===== INSTALAR GRYPE (Vulnerability Scanner) =====
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
 
-# Install Node.js (required for CodeQL JavaScript analysis and autobuild)
-# Remove problematic yarn repository first to avoid GPG key errors
+# ===== INSTALAR NODE.JS (para CodeQL JavaScript) =====
 RUN rm -f /etc/apt/sources.list.d/yarn.list && \
     apt-get update && apt-get install -y --no-install-recommends \
     curl \
@@ -20,26 +19,31 @@ RUN rm -f /etc/apt/sources.list.d/yarn.list && \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install CodeQL CLI
+# ===== INSTALAR CODEQL CLI =====
 RUN curl -sSfL https://github.com/github/codeql-cli-binaries/releases/download/v2.25.1/codeql-linux64.zip -o /tmp/codeql.zip \
     && unzip -q /tmp/codeql.zip -d /usr/local \
     && chmod +x /usr/local/codeql/codeql \
     && ln -s /usr/local/codeql/codeql /usr/local/bin/codeql \
     && rm /tmp/codeql.zip
 
-# Pre-download CodeQL query packs for faster first run
-# Using --github-auth-stdin to avoid issues with pack download, or use pack bundle as fallback
+# ===== DESCARGAR QUERY PACKS DE CODEQL =====
 RUN codeql pack download codeql/python-queries \
     && codeql pack download codeql/javascript-queries \
     && codeql pack download codeql/java-queries \
-    || echo "Note: Some query packs may not be available in offline mode. They will be downloaded on first use."
+    || echo "Nota: Algunos packs pueden no estar disponibles offline"
 
-# Verify CodeQL, Grype, Node.js, and npm installation
-RUN echo "CodeQL version:" && codeql version \
-    && echo "Grype version:" && grype version \
-    && echo "Node.js version:" && node --version \
-    && echo "npm version:" && npm --version
+# ===== VERIFICAR INSTALACIONES =====
+RUN echo "═══════════════════════════════" \
+    && echo "Verificando herramientas:" \
+    && echo "CodeQL:" && codeql version \
+    && echo "Grype:" && grype version \
+    && echo "Syft:" && syft version \
+    && echo "Node.js:" && node --version \
+    && echo "npm:" && npm --version \
+    && echo "Python:" && python --version \
+    && echo "═══════════════════════════════"
 
-# Set environment variables for uv
+# ===== CONFIGURAR VARIABLES DE ENTORNO =====
 ENV UV_LINK_MODE=copy
 ENV UV_COMPILE_BYTECODE=1
+ENV PATH="/usr/local/codeql:$PATH"
