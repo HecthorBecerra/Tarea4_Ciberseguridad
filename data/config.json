@@ -3,7 +3,9 @@
     "output_dir": "data/results",
 
     "repositories": [
-        "https://github.com/pallets/flask"
+        "https://github.com/pallets/flask",
+        "https://github.com/pallets/click",
+        "https://github.com/pallets/werkzeug"
     ],
 
     "organizations": [],
@@ -30,5 +32,10 @@
             "output_format": "json",
             "supported_languages": ["python", "javascript", "java", "cpp", "csharp"]
         }
+    },
+
+    "concurrency": {
+        "max_workers": 4,
+        "enabled": true
     }
 }
