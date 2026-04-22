@@ -2,10 +2,11 @@
 """Clona repositorios desde URLs individuales o desde organizaciones de GitHub"""
 
 import json
-import subprocess
 import sys
+import threading
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from rich.console import Console
 from rich.table import Table
 
@@ -15,13 +16,22 @@ except ImportError:
     print("Error: 'requests' no está instalado. Ejecuta: uv sync")
     sys.exit(1)
 
+from subprocess_utils import run_command
+
 console = Console()
+_print_lock = threading.Lock()
 
 GITHUB_API = "https://api.github.com"
 
 
+def _safe_print(*args, **kwargs):
+    """Imprime de forma thread-safe."""
+    with _print_lock:
+        console.print(*args, **kwargs)
+
+
 class RepoCloner:
-    def __init__(self, config_path: str = "data/config.json"):
+    def __init__(self, config_path: str = "data/config.json", max_workers: int = 4):
         self.config_path = Path(config_path)
         self.config = self._load_config()
         self.repos_dir = Path(self.config.get("repos_dir", "data/repos"))
@@ -29,10 +39,15 @@ class RepoCloner:
         self.clone_options = self.config.get("clone_options", {})
         self.results = []
 
+        # Concurrencia
+        concurrency = self.config.get("concurrency", {})
+        self.parallel_enabled = concurrency.get("enabled", True)
+        self.max_workers = max_workers or concurrency.get("max_workers", 4)
+
     def _load_config(self) -> dict:
         """Carga la configuración desde config.json"""
         if not self.config_path.exists():
-            console.print(f"[red]✗ No se encontró {self.config_path}[/red]")
+            _safe_print(f"[red]✗ No se encontró {self.config_path}[/red]")
             sys.exit(1)
         with open(self.config_path) as f:
             return json.load(f)
@@ -48,7 +63,7 @@ class RepoCloner:
 
     def _get_org_repos(self, org_name: str) -> list:
         """Obtiene la lista de repositorios de una organización de GitHub"""
-        console.print(f"\n[cyan]Obteniendo repositorios de la organización:[/cyan] {org_name}")
+        _safe_print(f"\n[cyan]Obteniendo repositorios de la organización:[/cyan] {org_name}")
 
         repos = []
         page = 1
@@ -61,11 +76,11 @@ class RepoCloner:
             response = requests.get(url, timeout=30)
 
             if response.status_code == 403:
-                console.print("[yellow]⚠ Límite de API de GitHub alcanzado. Usa un token para más requests.[/yellow]")
-                console.print("[yellow]  Exporta: GITHUB_TOKEN=tu_token[/yellow]")
+                _safe_print("[yellow]⚠ Límite de API de GitHub alcanzado. Usa un token para más requests.[/yellow]")
+                _safe_print("[yellow]  Exporta: GITHUB_TOKEN=tu_token[/yellow]")
                 break
             elif response.status_code != 200:
-                console.print(f"[red]✗ Error al obtener repos de {org_name}: {response.status_code}[/red]")
+                _safe_print(f"[red]✗ Error al obtener repos de {org_name}: {response.status_code}[/red]")
                 break
 
             page_repos = response.json()
@@ -102,7 +117,7 @@ class RepoCloner:
 
             page += 1
 
-        console.print(f"[green]  → {len(repos)} repositorios activos encontrados[/green]")
+        _safe_print(f"[green]  → {len(repos)} repositorios activos encontrados[/green]")
         return repos
 
     def _clone_repo(self, clone_url: str, repo_name: str = None) -> dict:
@@ -116,64 +131,57 @@ class RepoCloner:
         dest_path = self.repos_dir / repo_name
 
         if dest_path.exists():
-            console.print(f"  [yellow]⟳ Ya existe, actualizando:[/yellow] {repo_name}")
-            try:
-                result = subprocess.run(
-                    ["git", "-C", str(dest_path), "pull", "--ff-only"],
-                    capture_output=True, text=True, timeout=120
-                )
-                status = "updated" if result.returncode == 0 else "update_failed"
-            except Exception as e:
-                status = "update_failed"
+            _safe_print(f"  [yellow]⟳ Ya existe, actualizando:[/yellow] {repo_name}")
+            result = run_command(
+                ["git", "-C", str(dest_path), "pull", "--ff-only"],
+                timeout=120,
+            )
+            status = "updated" if result.success else "update_failed"
             return {
                 "repo": repo_name,
                 "url": clone_url,
                 "status": status,
-                "path": str(dest_path)
+                "path": str(dest_path),
             }
 
-        console.print(f"  [cyan]↓ Clonando:[/cyan] {repo_name}")
-        try:
-            result = subprocess.run(
-                ["git", "clone", "--depth", "1", clone_url, str(dest_path)],
-                capture_output=True, text=True, timeout=300
-            )
+        _safe_print(f"  [cyan]↓ Clonando:[/cyan] {repo_name}")
+        result = run_command(
+            ["git", "clone", "--depth", "1", clone_url, str(dest_path)],
+            timeout=300,
+        )
 
-            if result.returncode == 0:
-                console.print(f"  [green]✓ Clonado:[/green] {repo_name}")
-                return {
-                    "repo": repo_name,
-                    "url": clone_url,
-                    "status": "cloned",
-                    "path": str(dest_path)
-                }
-            else:
-                console.print(f"  [red]✗ Error:[/red] {result.stderr[:150]}")
-                return {
-                    "repo": repo_name,
-                    "url": clone_url,
-                    "status": "error",
-                    "error": result.stderr[:200]
-                }
-
-        except subprocess.TimeoutExpired:
-            console.print(f"  [red]✗ Timeout clonando {repo_name}[/red]")
+        if result.success:
+            _safe_print(f"  [green]✓ Clonado:[/green] {repo_name}")
+            return {
+                "repo": repo_name,
+                "url": clone_url,
+                "status": "cloned",
+                "path": str(dest_path),
+            }
+        elif result.error_message and "Timeout" in result.error_message:
+            _safe_print(f"  [red]✗ Timeout clonando {repo_name}[/red]")
             return {"repo": repo_name, "url": clone_url, "status": "timeout"}
-        except Exception as e:
-            return {"repo": repo_name, "url": clone_url, "status": "error", "error": str(e)}
+        else:
+            _safe_print(f"  [red]✗ Error:[/red] {result.stderr[:150]}")
+            return {
+                "repo": repo_name,
+                "url": clone_url,
+                "status": "error",
+                "error": result.error_message or result.stderr[:200],
+            }
 
     def run(self):
         """Ejecuta el proceso de clonación"""
-        console.print("[bold cyan]═══════════════════════════════════════[/bold cyan]")
-        console.print("[bold cyan]  CLONADOR DE REPOSITORIOS[/bold cyan]")
-        console.print("[bold cyan]═══════════════════════════════════════[/bold cyan]")
+        _safe_print("[bold cyan]═══════════════════════════════════════[/bold cyan]")
+        _safe_print("[bold cyan]  CLONADOR DE REPOSITORIOS[/bold cyan]")
+        _safe_print("[bold cyan]═══════════════════════════════════════[/bold cyan]")
 
         all_urls = []
 
         # 1) Repositorios individuales del config
         individual_repos = self.config.get("repositories", [])
         if individual_repos:
-            console.print(f"\n[blue]📋 {len(individual_repos)} repositorio(s) individual(es) configurado(s)[/blue]")
+            _safe_print(f"\n[blue]📋 {len(individual_repos)} repositorio(s) individual(es) configurado(s)[/blue]")
             for url in individual_repos:
                 all_urls.append({"clone_url": url, "name": None})
 
@@ -189,16 +197,27 @@ class RepoCloner:
                     })
 
         if not all_urls:
-            console.print("\n[yellow]⚠ No hay repositorios configurados.[/yellow]")
-            console.print("[yellow]  Edita data/config.json para agregar URLs o nombres de organizaciones.[/yellow]")
+            _safe_print("\n[yellow]⚠ No hay repositorios configurados.[/yellow]")
+            _safe_print("[yellow]  Edita data/config.json para agregar URLs o nombres de organizaciones.[/yellow]")
             return
 
-        # 3) Clonar todos
-        console.print(f"\n[blue]🔄 Clonando {len(all_urls)} repositorio(s)...[/blue]")
+        # 3) Clonar todos (en paralelo o secuencial)
+        workers = self.max_workers if self.parallel_enabled else 1
+        mode = f"paralelo ({workers} workers)" if workers > 1 else "secuencial"
+        _safe_print(f"\n[blue]🔄 Clonando {len(all_urls)} repositorio(s) — modo {mode}...[/blue]")
 
-        for repo_info in all_urls:
-            result = self._clone_repo(repo_info["clone_url"], repo_info.get("name"))
-            self.results.append(result)
+        if workers > 1:
+            with ThreadPoolExecutor(max_workers=workers) as executor:
+                futures = {
+                    executor.submit(self._clone_repo, info["clone_url"], info.get("name")): info
+                    for info in all_urls
+                }
+                for future in as_completed(futures):
+                    self.results.append(future.result())
+        else:
+            for repo_info in all_urls:
+                result = self._clone_repo(repo_info["clone_url"], repo_info.get("name"))
+                self.results.append(result)
 
         # 4) Mostrar resumen
         self._print_summary()
