@@ -10,7 +10,16 @@ RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | 
 # ===== INSTALAR GRYPE (Vulnerability Scanner) =====
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
 
-# ===== INSTALAR NODE.JS (para CodeQL JavaScript) =====
+# ===== INSTALAR JAVA 17 + MAVEN (para CodeQL Java/Scala: Spark, Dubbo) =====
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openjdk-17-jdk-headless \
+    maven \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+# ===== INSTALAR NODE.JS (para CodeQL JavaScript: ECharts, Superset) =====
 RUN rm -f /etc/apt/sources.list.d/yarn.list && \
     apt-get update && apt-get install -y --no-install-recommends \
     curl \
@@ -27,6 +36,7 @@ RUN curl -sSfL https://github.com/github/codeql-cli-binaries/releases/download/v
     && rm /tmp/codeql.zip
 
 # ===== DESCARGAR QUERY PACKS DE CODEQL =====
+# python → Airflow, Superset | javascript → ECharts | java → Spark, Dubbo
 RUN codeql pack download codeql/python-queries \
     && codeql pack download codeql/javascript-queries \
     && codeql pack download codeql/java-queries \
@@ -41,6 +51,8 @@ RUN echo "═══════════════════════�
     && echo "Node.js:" && node --version \
     && echo "npm:" && npm --version \
     && echo "Python:" && python --version \
+    && echo "Java:" && java -version \
+    && echo "Maven:" && mvn --version \
     && echo "═══════════════════════════════"
 
 # ===== CONFIGURAR VARIABLES DE ENTORNO =====

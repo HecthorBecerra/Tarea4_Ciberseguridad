@@ -3,16 +3,11 @@
     "output_dir": "data/results",
 
     "repositories": [
-        "https://github.com/pallets/flask",
-        "https://github.com/pallets/click",
-        "https://github.com/pallets/werkzeug",
-        "https://github.com/psf/requests",
-        "https://github.com/encode/httpx",
-        "https://github.com/tiangolo/fastapi",
-        "https://github.com/pallets/jinja",
-        "https://github.com/paramiko/paramiko",
-        "https://github.com/encode/starlette",
-        "https://github.com/urllib3/urllib3"
+        "https://github.com/apache/superset",
+        "https://github.com/apache/echarts",
+        "https://github.com/apache/airflow",
+        "https://github.com/apache/spark",
+        "https://github.com/apache/dubbo"
     ],
 
     "organizations": [],
