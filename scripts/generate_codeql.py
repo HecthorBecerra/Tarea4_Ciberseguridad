@@ -29,55 +29,55 @@ class CodeQLAnalyzer:
         self.db_dir.mkdir(exist_ok=True)
         self.max_workers = max_workers
 
+    def _estimate_timeout(self, repo_path: Path) -> int:
+        """Estima un timeout razonable basado en el tamaño del repositorio."""
+        import subprocess as sp
+        try:
+            result = sp.run(
+                ["du", "-sb", str(repo_path)],
+                capture_output=True, text=True, timeout=30
+            )
+            if result.returncode == 0:
+                size_bytes = int(result.stdout.split()[0])
+                size_mb = size_bytes / (1024 * 1024)
+            else:
+                size_mb = 100  # fallback
+            # Entre 10 min (mínimo) y 30 min (máximo), escalando ~5s por MB
+            return max(600, min(1800, int(size_mb * 5)))
+        except (OSError, ValueError, sp.TimeoutExpired):
+            return 900  # 15 min por defecto si no se puede calcular
+
     def analyze_repo(self, repo_path: Path) -> dict:
-        """Analiza un repositorio con CodeQL"""
+        """Analiza un repositorio con CodeQL.
+
+        Crea una BD separada por cada lenguaje detectado, continúa si algún
+        lenguaje falla y consolida los hallazgos de todos los lenguajes
+        exitosos en un único JSON de salida.
+        """
         repo_name = repo_path.name
 
         _safe_print(f"\n[cyan]Analizando con CodeQL:[/cyan] {repo_name}")
 
-        # Crear base de datos
-        db_path = self.db_dir / f"{repo_name}-db"
         results_file = self.output_dir / f"{repo_name}-codeql.json"
 
         try:
-            # Paso 1: Crear base de datos
-            _safe_print(f"  [yellow]→ Creando base de datos...[/yellow]")
-
-            # Detectar lenguaje
+            # Paso 1: Detectar lenguajes
+            _safe_print(f"  [yellow]→ Detectando lenguajes...[/yellow]")
             languages = self._detect_languages(repo_path)
 
             if not languages:
-                _safe_print(f"  [yellow]! No se detectaron lenguajes soportados[/yellow]")
+                _safe_print(f"  [yellow]! No se detectaron lenguajes soportados (umbral mínimo: 5 archivos)[/yellow]")
                 return {
                     "repo": repo_name,
                     "status": "skipped",
                     "reason": "no_supported_languages"
                 }
 
-            for lang in languages:
-                cmd = [
-                    "codeql", "database", "create",
-                    str(db_path),
-                    "--language", lang,
-                    "--source-root", str(repo_path),
-                    "--overwrite"
-                ]
+            _safe_print(f"  [blue]  Lenguajes detectados: {', '.join(languages)}[/blue]")
 
-                result = run_command(cmd, timeout=600)
-
-                if result.failed:
-                    _safe_print(f"  [red]✗ Error creando BD para {lang}[/red]")
-                    return {
-                        "repo": repo_name,
-                        "status": "error",
-                        "language": lang,
-                        "error": result.error_message or result.stderr[:200]
-                    }
-
-            # Paso 2: Analizar
-            _safe_print(f"  [yellow]→ Analizando...[/yellow]")
-
-            sarif_file = self.output_dir / f"{repo_name}-codeql.sarif"
+            # Timeout adaptativo según tamaño del repo
+            db_timeout = self._estimate_timeout(repo_path)
+            _safe_print(f"  [blue]  Timeout estimado: {db_timeout // 60} min[/blue]")
 
             # Mapeo de lenguaje a query pack
             query_packs = {
@@ -88,51 +88,91 @@ class CodeQLAnalyzer:
                 "csharp": "codeql/csharp-queries:codeql-suites/csharp-security-and-quality.qls",
             }
 
-            # Usar el primer lenguaje detectado para seleccionar query pack
-            lang = languages[0]
-            query_pack = query_packs.get(lang, f"codeql/{lang}-queries")
+            all_findings = []
+            successful_langs = []
+            errors = []
 
-            cmd = [
-                "codeql", "database", "analyze",
-                str(db_path),
-                query_pack,
-                "--format=sarif-latest",
-                f"--output={sarif_file}",
-                "--download"
-            ]
+            for lang in languages:
+                # Paso 2: Crear BD separada por lenguaje
+                lang_db_path = self.db_dir / f"{repo_name}-{lang}-db"
+                _safe_print(f"  [yellow]→ Creando BD para {lang}...[/yellow]")
 
-            result = run_command(cmd, timeout=900)
+                cmd = [
+                    "codeql", "database", "create",
+                    str(lang_db_path),
+                    "--language", lang,
+                    "--source-root", str(repo_path),
+                    "--overwrite"
+                ]
 
-            if result.success:
-                # Convertir SARIF a JSON simplificado
-                findings = self._sarif_to_json(sarif_file, results_file)
-                _safe_print(f"[green]✓ Análisis completado: {len(findings)} hallazgo(s)[/green]")
-                return {
+                result = run_command(cmd, timeout=db_timeout)
+
+                if result.failed:
+                    error_detail = result.error_message or result.stderr[:200]
+                    _safe_print(f"  [red]✗ Error creando BD para {lang}: {error_detail[:100]}[/red]")
+                    errors.append({"language": lang, "phase": "create", "error": error_detail})
+                    continue  # Continuar con el siguiente lenguaje
+
+                # Paso 3: Analizar la BD creada
+                _safe_print(f"  [yellow]→ Analizando {lang}...[/yellow]")
+
+                sarif_file = self.output_dir / f"{repo_name}-{lang}-codeql.sarif"
+                query_pack = query_packs.get(lang, f"codeql/{lang}-queries")
+
+                cmd = [
+                    "codeql", "database", "analyze",
+                    str(lang_db_path),
+                    query_pack,
+                    "--format=sarif-latest",
+                    f"--output={sarif_file}",
+                    "--download"
+                ]
+
+                analyze_timeout = max(900, db_timeout)
+                result = run_command(cmd, timeout=analyze_timeout)
+
+                if result.success:
+                    findings = self._parse_sarif(sarif_file)
+                    all_findings.extend(findings)
+                    successful_langs.append(lang)
+                    _safe_print(f"  [green]✓ {lang}: {len(findings)} hallazgo(s)[/green]")
+                else:
+                    error_detail = result.error_message or result.stderr[:200]
+                    _safe_print(f"  [red]✗ Error analizando {lang}: {error_detail[:100]}[/red]")
+                    errors.append({"language": lang, "phase": "analyze", "error": error_detail})
+
+            # Paso 4: Consolidar resultados
+            if successful_langs:
+                with open(results_file, "w") as f:
+                    json.dump({"findings": all_findings, "total": len(all_findings)}, f, indent=2)
+
+                _safe_print(f"[green]✓ Análisis completado para {repo_name}: "
+                            f"{len(all_findings)} hallazgo(s) en {', '.join(successful_langs)}[/green]")
+                result_dict = {
                     "repo": repo_name,
-                    "status": "success",
-                    "languages": languages,
-                    "findings_count": len(findings),
+                    "status": "success" if not errors else "partial",
+                    "languages": successful_langs,
+                    "findings_count": len(all_findings),
                     "output_file": str(results_file),
-                    "sarif_file": str(sarif_file),
                     "timestamp": datetime.now().isoformat()
                 }
-            elif result.error_message and "Timeout" in result.error_message:
-                _safe_print(f"[red]✗ Timeout analizando {repo_name}[/red]")
-                return {"repo": repo_name, "status": "timeout"}
+                if errors:
+                    result_dict["errors"] = errors
+                return result_dict
             else:
-                _safe_print(f"[red]✗ Error en análisis[/red]")
+                _safe_print(f"[red]✗ No se pudo analizar ningún lenguaje en {repo_name}[/red]")
                 return {
                     "repo": repo_name,
                     "status": "error",
-                    "error": result.error_message or result.stderr[:200]
+                    "errors": errors
                 }
 
         except Exception as e:
             _safe_print(f"[red]✗ Error: {e}[/red]")
             return {"repo": repo_name, "status": "error", "error": str(e)}
 
-    def _sarif_to_json(self, sarif_file: Path, json_file: Path) -> list:
-        """Convierte SARIF a JSON simplificado"""
+    def _parse_sarif(self, sarif_file: Path) -> list:
+        """Parsea un archivo SARIF y devuelve lista de hallazgos."""
         try:
             with open(sarif_file) as f:
                 sarif = json.load(f)
@@ -164,35 +204,70 @@ class CodeQLAnalyzer:
                         "tool": tool_name
                     })
 
-            with open(json_file, "w") as f:
-                json.dump({"findings": findings, "total": len(findings)}, f, indent=2)
-
             return findings
         except Exception as e:
-            _safe_print(f"  [yellow]! Error convirtiendo SARIF: {e}[/yellow]")
+            _safe_print(f"  [yellow]! Error parseando SARIF: {e}[/yellow]")
             return []
 
-    def _detect_languages(self, repo_path: Path) -> list:
-        """Detecta lenguajes en el repositorio"""
-        languages = set()
+    def _detect_languages(self, repo_path: Path, min_files: int = 5) -> list:
+        """Detecta lenguajes en el repositorio con umbral mínimo.
 
-        file_patterns = {
-            ".py": "python",
-            ".js": "javascript",
-            ".ts": "javascript",
-            ".jsx": "javascript",
-            ".tsx": "javascript",
-            ".java": "java",
-            ".cpp": "cpp",
-            ".c": "cpp",
-            ".cs": "csharp",
+        Solo reporta un lenguaje si se encuentran al menos `min_files`
+        archivos de ese lenguaje, evitando falsos positivos por archivos
+        de configuración aislados (p.ej. un solo .eleventy.js).
+
+        Los lenguajes se devuelven ordenados por cantidad de archivos
+        (el más predominante primero).
+
+        Usa `find` del sistema para máxima velocidad en repos grandes.
+        """
+        import subprocess as sp
+
+        language_counts: dict[str, int] = {}
+
+        # Agrupamos extensiones por lenguaje para hacer menos llamadas
+        lang_extensions = {
+            "python": [".py"],
+            "javascript": [".js", ".ts", ".jsx", ".tsx"],
+            "java": [".java"],
+            "cpp": [".cpp", ".c"],
+            "csharp": [".cs"],
         }
 
-        for pattern, lang in file_patterns.items():
-            if list(repo_path.rglob(f"*{pattern}")):
-                languages.add(lang)
+        for lang, extensions in lang_extensions.items():
+            # Construir comando find con múltiples -name OR
+            find_args = ["find", str(repo_path), "-type", "f", "("]
+            for i, ext in enumerate(extensions):
+                if i > 0:
+                    find_args.append("-o")
+                find_args.extend(["-name", f"*{ext}"])
+            find_args.append(")")
 
-        return list(languages)
+            try:
+                result = sp.run(
+                    find_args,
+                    capture_output=True, text=True, timeout=60
+                )
+                if result.returncode == 0 and result.stdout.strip():
+                    count = result.stdout.strip().count("\n") + 1
+                    language_counts[lang] = count
+            except (sp.TimeoutExpired, OSError):
+                pass
+
+        # Filtrar por umbral mínimo
+        qualified = {
+            lang: count for lang, count in language_counts.items()
+            if count >= min_files
+        }
+
+        if qualified:
+            _safe_print(f"  [dim]  Conteo de archivos: {dict(sorted(language_counts.items(), key=lambda x: -x[1]))}[/dim]")
+            if len(language_counts) > len(qualified):
+                skipped = set(language_counts) - set(qualified)
+                _safe_print(f"  [dim]  Lenguajes descartados (< {min_files} archivos): {skipped}[/dim]")
+
+        # Ordenar por cantidad descendente (el principal primero)
+        return sorted(qualified.keys(), key=lambda l: qualified[l], reverse=True)
 
     def run(self):
         """Ejecuta análisis para todos los repositorios"""

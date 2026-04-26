@@ -1,24 +1,17 @@
 {
     "repos_dir": "data/repos",
     "output_dir": "data/results",
-
     "repositories": [
         "https://github.com/apache/superset",
-        "https://github.com/apache/echarts",
-        "https://github.com/apache/airflow",
-        "https://github.com/apache/spark",
-        "https://github.com/apache/dubbo"
+        "https://github.com/apache/echarts"
     ],
-
     "organizations": [],
-
     "clone_options": {
         "max_inactive_days": 30,
         "skip_archived": true,
         "skip_forks": true,
-        "max_repos": 50
+        "max_repos": 20
     },
-
     "tools": {
         "syft": {
             "enabled": true,
@@ -32,12 +25,17 @@
         "codeql": {
             "enabled": true,
             "output_format": "json",
-            "supported_languages": ["python", "javascript", "java", "cpp", "csharp"]
+            "supported_languages": [
+                "python",
+                "javascript",
+                "java",
+                "cpp",
+                "csharp"
+            ]
         }
     },
-
     "concurrency": {
-        "max_workers": 4,
+        "max_workers": 5,
         "enabled": true
     }
 }
