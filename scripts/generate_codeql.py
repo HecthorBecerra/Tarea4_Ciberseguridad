@@ -20,17 +20,53 @@ def _safe_print(*args, **kwargs):
         console.print(*args, **kwargs)
 
 
+# Lenguajes interpretados que soportan --build-mode=none (sin compilacion)
+_INTERPRETED_LANGS = frozenset({"python", "javascript", "ruby"})
+
+
 class CodeQLAnalyzer:
-    def __init__(self, repos_dir: str, output_dir: str, max_workers: int = 4):
+    def __init__(self, repos_dir: str, output_dir: str, max_workers: int = 4,
+                 *, primary_language_only: bool = True):
         self.repos_dir = Path(repos_dir)
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.db_dir = self.output_dir / "databases"
         self.db_dir.mkdir(exist_ok=True)
         self.max_workers = max_workers
+        self.primary_language_only = primary_language_only
+
+        # Detectar recursos disponibles del sistema
+        self._threads = self._detect_threads()
+        self._ram_mb = self._detect_ram()
+
+    @staticmethod
+    def _detect_threads() -> int:
+        """Detecta el numero de CPUs disponibles."""
+        import os
+        return os.cpu_count() or 4
+
+    @staticmethod
+    def _detect_ram() -> int:
+        """Detecta la RAM disponible y reserva una porcion para CodeQL."""
+        import subprocess as sp
+        try:
+            result = sp.run(
+                ["free", "-m"],
+                capture_output=True, text=True, timeout=5
+            )
+            if result.returncode == 0:
+                # Linea "Mem:" -> columna "available"
+                for line in result.stdout.splitlines():
+                    if line.startswith("Mem:"):
+                        available = int(line.split()[-1])
+                        # Usar 75% de la RAM disponible, minimo 1024 MB
+                        return max(1024, int(available * 0.75))
+        except (OSError, ValueError, sp.TimeoutExpired):
+            pass
+        return 2048  # fallback
 
     def _estimate_timeout(self, repo_path: Path) -> int:
-        """Estima un timeout razonable basado en el tamaño del repositorio."""
+        """Estima un timeout razonable basado en el tamano del repositorio."""
         import subprocess as sp
         try:
             result = sp.run(
@@ -42,8 +78,8 @@ class CodeQLAnalyzer:
                 size_mb = size_bytes / (1024 * 1024)
             else:
                 size_mb = 100  # fallback
-            # Entre 10 min (mínimo) y 30 min (máximo), escalando ~5s por MB
-            return max(600, min(1800, int(size_mb * 5)))
+            # Entre 10 min (minimo) y 60 min (maximo), escalando ~5s por MB
+            return max(600, min(3600, int(size_mb * 5)))
         except (OSError, ValueError, sp.TimeoutExpired):
             return 900  # 15 min por defecto si no se puede calcular
 
@@ -73,19 +109,26 @@ class CodeQLAnalyzer:
                     "reason": "no_supported_languages"
                 }
 
-            _safe_print(f"  [blue]  Lenguajes detectados: {', '.join(languages)}[/blue]")
+            # Solo analizar el lenguaje principal si esta habilitado
+            if self.primary_language_only:
+                languages = languages[:1]
+                _safe_print(f"  [blue]  Lenguaje principal: {languages[0]}[/blue]")
+            else:
+                _safe_print(f"  [blue]  Lenguajes detectados: {', '.join(languages)}[/blue]")
 
-            # Timeout adaptativo según tamaño del repo
+            # Timeout adaptativo segun tamano del repo
             db_timeout = self._estimate_timeout(repo_path)
             _safe_print(f"  [blue]  Timeout estimado: {db_timeout // 60} min[/blue]")
+            _safe_print(f"  [blue]  Threads: {self._threads} | RAM: {self._ram_mb} MB[/blue]")
 
-            # Mapeo de lenguaje a query pack
+            # Query suites: security-extended es ~3x mas rapido que security-and-quality
+            # (54 vs 176 queries) y cubre las vulnerabilidades relevantes
             query_packs = {
-                "python": "codeql/python-queries:codeql-suites/python-security-and-quality.qls",
-                "javascript": "codeql/javascript-queries:codeql-suites/javascript-security-and-quality.qls",
-                "java": "codeql/java-queries:codeql-suites/java-security-and-quality.qls",
-                "cpp": "codeql/cpp-queries:codeql-suites/cpp-security-and-quality.qls",
-                "csharp": "codeql/csharp-queries:codeql-suites/csharp-security-and-quality.qls",
+                "python": "codeql/python-queries:codeql-suites/python-security-extended.qls",
+                "javascript": "codeql/javascript-queries:codeql-suites/javascript-security-extended.qls",
+                "java": "codeql/java-queries:codeql-suites/java-security-extended.qls",
+                "cpp": "codeql/cpp-queries:codeql-suites/cpp-security-extended.qls",
+                "csharp": "codeql/csharp-queries:codeql-suites/csharp-security-extended.qls",
             }
 
             all_findings = []
@@ -102,8 +145,12 @@ class CodeQLAnalyzer:
                     str(lang_db_path),
                     "--language", lang,
                     "--source-root", str(repo_path),
-                    "--overwrite"
+                    "--overwrite",
+                    f"--threads={self._threads}",
                 ]
+                # Para lenguajes interpretados, --build-mode=none es mas rapido
+                if lang in _INTERPRETED_LANGS:
+                    cmd.append("--build-mode=none")
 
                 result = run_command(cmd, timeout=db_timeout)
 
@@ -125,7 +172,9 @@ class CodeQLAnalyzer:
                     query_pack,
                     "--format=sarif-latest",
                     f"--output={sarif_file}",
-                    "--download"
+                    "--download",
+                    f"--threads={self._threads}",
+                    f"--ram={self._ram_mb}",
                 ]
 
                 analyze_timeout = max(900, db_timeout)
