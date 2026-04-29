@@ -11,7 +11,8 @@ RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | 
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
 
 # ===== INSTALAR JAVA 17 + MAVEN (para CodeQL Java/Scala: Spark, Dubbo) =====
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/yarn.sources && \
+    apt-get update && apt-get install -y --no-install-recommends \
     openjdk-17-jdk-headless \
     maven \
     && apt-get clean \
@@ -20,7 +21,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 # ===== INSTALAR NODE.JS (para CodeQL JavaScript: ECharts, Superset) =====
-RUN rm -f /etc/apt/sources.list.d/yarn.list && \
+RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/yarn.sources && \
     apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
