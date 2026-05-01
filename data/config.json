@@ -2,16 +2,16 @@
     "repos_dir": "data/repos",
     "output_dir": "data/results",
     "repositories": [
-        "https://github.com/apache/allura",
-        "https://github.com/apache/airflow",  
-        "https://github.com/apache/tvm"
+        "https://huggingface.co/datasets/some-user/top-starred-dataset-1",
+        "https://huggingface.co/models/another-user/top-starred-model-2",
+        "https://huggingface.co/datasets/final-user/top-starred-dataset-50"
     ],
     "organizations": [],
     "clone_options": {
         "max_inactive_days": 30,
         "skip_archived": true,
         "skip_forks": true,
-        "max_repos": 20
+        "max_repos": 50
     },
     "tools": {
         "syft": {
