@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+    background-color: #06080f;
+    color: #dde4f0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar       { width: 3px; height: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1a2035; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2d3d6a; }
+
+  select option { background: #0f1220; color: #dde4f0; }
+}
+
+@layer utilities {
+  /* Staggered delays for card grid */
+  .delay-0   { animation-delay:   0ms; }
+  .delay-60  { animation-delay:  60ms; }
+  .delay-120 { animation-delay: 120ms; }
+  .delay-180 { animation-delay: 180ms; }
+  .delay-240 { animation-delay: 240ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-360 { animation-delay: 360ms; }
+  .delay-420 { animation-delay: 420ms; }
+
+  /* Noise grain overlay */
+  .grain::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* Thin top-border card accent */
+  .card-crit  { border-top: 2px solid #ff3d52; }
+  .card-hi    { border-top: 2px solid #ff7340; }
+  .card-safe  { border-top: 2px solid #22d48e; }
+  .card-vuln  { border-top: 2px solid #a855f7; }
+  .card-acc   { border-top: 2px solid #3d7fff; }
+
+  /* Severity pill — sharp edges */
+  .sev-badge {
+    @apply inline-flex items-center px-1.5 py-px text-[10px] font-semibold
+           border rounded-sm tracking-widest uppercase leading-none;
+  }
+  .sev-critical { @apply bg-[#ff3d52]/10 text-[#ff3d52] border-[#ff3d52]/30; }
+  .sev-high     { @apply bg-[#ff7340]/10 text-[#ff7340] border-[#ff7340]/30; }
+  .sev-medium   { @apply bg-[#ffc107]/10 text-[#ffc107] border-[#ffc107]/30; }
+  .sev-low      { @apply bg-[#22d48e]/10 text-[#22d48e] border-[#22d48e]/30; }
+  .sev-unknown  { @apply bg-rim           text-ink-dim   border-rim; }
+  .sev-error    { @apply bg-[#ff3d52]/10 text-[#ff3d52] border-[#ff3d52]/30; }
+  .sev-warning  { @apply bg-[#ffc107]/10 text-[#ffc107] border-[#ffc107]/30; }
+  .sev-note     { @apply bg-[#3d7fff]/10 text-[#3d7fff] border-[#3d7fff]/30; }
+
+  /* Input / select shared */
+  .ctrl {
+    @apply bg-card border border-rim rounded text-xs text-ink
+           placeholder-ink-off focus:outline-none focus:border-rim-hi
+           transition-colors;
+  }
+
+  /* Section micro-label */
+  .micro {
+    @apply text-[9px] uppercase tracking-[0.22em] text-ink-off font-semibold;
+  }
+
+  /* Data table row */
+  .trow {
+    @apply border-b border-rim hover:bg-card-hi transition-colors duration-100;
+  }
+
+  /* Horizontal stacked bar segment */
+  .bar-seg { transition: width 0.7s cubic-bezier(.4,0,.2,1); }
+}

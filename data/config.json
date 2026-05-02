@@ -2,9 +2,11 @@
     "repos_dir": "data/repos",
     "output_dir": "data/results",
     "repositories": [
-        "https://github.com/apache/allura",
-        "https://github.com/apache/airflow",  
-        "https://github.com/apache/tvm"
+        "https://github.com/huggingface/transformers",
+        "https://github.com/huggingface/kernels",
+        "https://github.com/huggingface/dataset-viewer",
+        "https://github.com/huggingface/sentence-transformers"
+       
     ],
     "organizations": [],
     "clone_options": {
