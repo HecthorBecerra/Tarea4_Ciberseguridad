@@ -36,9 +36,17 @@ class GrypeScanner:
 
         output_file = self.output_dir / f"{repo_name}-grype.json"
 
+        sbom_file = self.output_dir / f"{repo_name}-sbom.json"
+        if sbom_file.exists():
+            scan_target = f"sbom:{sbom_file}"
+            _safe_print(f"[dim]  → usando SBOM: {sbom_file.name}[/dim]")
+        else:
+            scan_target = str(repo_path)
+            _safe_print(f"[yellow]  → SBOM no encontrado, escaneando directorio[/yellow]")
+
         cmd = [
             "grype",
-            str(repo_path),
+            scan_target,
             "-o", "json",
             f"--file={output_file}"
         ]
