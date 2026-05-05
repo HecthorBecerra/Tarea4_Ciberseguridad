@@ -1,4 +1,4 @@
-import { ShieldAlert, Flame, CheckCircle2, Package, Code2, AlertTriangle, Layers, Zap } from 'lucide-react'
+import { ShieldAlert, Flame, Code2 } from 'lucide-react'
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 
 // ── Paleta de severidad ───────────────────────────────────────────────────────
@@ -85,17 +85,17 @@ function ThreatDonut({ stats }) {
   const total = stats.totalVulns
 
   return (
-    <div className="animate-fade-up bg-card border border-rim rounded-lg p-5" style={{ animationDelay: '200ms' }}>
+    <div className="animate-fade-up bg-card border border-rim rounded-lg p-5 h-full flex flex-col" style={{ animationDelay: '200ms' }}>
       <Sect label="Distribución de amenazas" right="todos los repos" />
-      <div className="flex items-center gap-5">
+      <div className="flex-1 flex items-center justify-center gap-5">
         {/* Donut */}
-        <div className="relative shrink-0" style={{ width: 148, height: 148 }}>
-          <ResponsiveContainer width={148} height={148}>
+        <div className="relative shrink-0" style={{ width: 200, height: 200 }}>
+          <ResponsiveContainer width={200} height={200}>
             <PieChart>
               <Pie
                 data={data.length > 0 ? data : [{ name: 'empty', value: 1, hex: '#1a2035' }]}
-                cx={70} cy={70}
-                innerRadius={46} outerRadius={64}
+                cx={96} cy={96}
+                innerRadius={62} outerRadius={88}
                 paddingAngle={data.length > 1 ? 2 : 0}
                 dataKey="value"
                 startAngle={90} endAngle={-270}
@@ -203,11 +203,9 @@ export default function Dashboard({ data }) {
   const totalDeps = stats.totalDeps?.toLocaleString?.() ?? stats.totalDeps
 
   const CARDS = [
-    { label: 'Total CVEs',       value: stats.totalVulns,      sub: `${stats.repos} repos`,                         topClass: 'card-crit',  accentHex: '#ff3d52', Icon: ShieldAlert,  delay: 0   },
-    { label: 'Críticos',         value: stats.critical,        sub: `${stats.high} high · ${stats.medium} medium`,  topClass: 'card-hi',    accentHex: '#ff7340', Icon: Flame,        delay: 60  },
-    { label: 'Fix disponible',   value: `${stats.fixPct}%`,    sub: `de ${stats.totalVulns} vulnerabilidades`,       topClass: 'card-safe',  accentHex: '#22d48e', Icon: CheckCircle2, delay: 120 },
-    { label: 'Hallazgos CodeQL', value: stats.codeqlFindings,  sub: `${stats.codeqlErrors} errores críticos`,        topClass: 'card-vuln',  accentHex: '#a855f7', Icon: Code2,        delay: 180 },
-    { label: 'Dependencias',     value: totalDeps,             sub: 'componentes en SBOM',                          topClass: 'card-acc',   accentHex: '#3d7fff', Icon: Package,      delay: 240 },
+    { label: 'Total CVEs',       value: stats.totalVulns,      sub: `${stats.repos} repos`,                        topClass: 'card-crit', accentHex: '#ff3d52', Icon: ShieldAlert, delay: 0  },
+    { label: 'Críticos',         value: stats.critical,        sub: `${stats.high} high · ${stats.medium} medium`, topClass: 'card-hi',   accentHex: '#ff7340', Icon: Flame,       delay: 60 },
+    { label: 'Hallazgos CodeQL', value: stats.codeqlFindings,  sub: `${stats.codeqlErrors} errores críticos`,       topClass: 'card-vuln', accentHex: '#a855f7', Icon: Code2,       delay: 120 },
   ]
 
   return (
@@ -223,7 +221,7 @@ export default function Dashboard({ data }) {
       </div>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {CARDS.map((c, i) => <StatCard key={i} {...c} />)}
       </div>
 
