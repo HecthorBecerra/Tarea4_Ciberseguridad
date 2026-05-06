@@ -8,7 +8,7 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from rich.console import Console
 
-from subprocess_utils import run_command
+from .subprocess_utils import run_command
 
 console = Console()
 _print_lock = threading.Lock()
@@ -53,7 +53,8 @@ class SBOMGenerator:
                 "timestamp": datetime.now().isoformat()
             }
         elif result.error_message and "Timeout" in result.error_message:
-            _safe_print(f"[red]✗ Timeout generando SBOM para {repo_name}[/red]")
+            _safe_print(
+                f"[red]✗ Timeout generando SBOM para {repo_name}[/red]")
             return {"repo": repo_name, "status": "timeout"}
         else:
             error_msg = result.error_message or result.stderr
@@ -78,7 +79,8 @@ class SBOMGenerator:
 
         workers = self.max_workers
         mode = f"paralelo ({workers} workers)" if workers > 1 else "secuencial"
-        _safe_print(f"\n[blue]📦 Procesando {len(repos)} repositorio(s) — modo {mode}...[/blue]")
+        _safe_print(
+            f"\n[blue]📦 Procesando {len(repos)} repositorio(s) — modo {mode}...[/blue]")
 
         results = []
         if workers > 1:
@@ -101,12 +103,14 @@ class SBOMGenerator:
 
         _safe_print(f"\n[blue]Resumen guardado en:[/blue] {summary_file}")
 
+
 def main():
     repos_dir = "data/repos"
     output_dir = "data/results"
 
     generator = SBOMGenerator(repos_dir, output_dir)
     generator.run()
+
 
 if __name__ == "__main__":
     main()

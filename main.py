@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 """Script principal para ejecutar todos los análisis"""
 
-import json
-import sys
 import click
+import json
+from scripts.generate_sboms import SBOMGenerator
+from scripts.generate_grype import GrypeScanner
+from scripts.generate_codeql import CodeQLAnalyzer
+from scripts.clone_repos import RepoCloner
+from scripts.analyzer import VulnerabilityAnalyzer
+from scripts.generate_reports import ReportGenerator
+import sys
 from pathlib import Path
 
-# Agregar scripts al path
+# Important: Add scripts directory to path BEFORE importing local modules
 sys.path.insert(0, str(Path(__file__).parent / "scripts"))
-
-from generate_sboms import SBOMGenerator
-from generate_grype import GrypeScanner
-from generate_codeql import CodeQLAnalyzer
-from clone_repos import RepoCloner
-from generate_reports import ReportGenerator
 
 
 def _load_max_workers(config_path: str, workers_override: int | None) -> int:
@@ -102,6 +102,14 @@ def report(output_dir):
     generator.generate_report()
 
 
+@cli.command()
+@click.option("--output-dir", default="data/results", help="Directorio con JSONs del miner")
+def analyze(output_dir):
+    """🧠 Ejecutar el Analyzer sistemático para caracterizar vulnerabilidades"""
+    logic_analyzer = VulnerabilityAnalyzer(output_dir)
+    logic_analyzer.run()
+
+
 @cli.command(name="all")
 @click.option("--config", default="data/config.json", help="Ruta al archivo de configuración")
 @click.option("--repos-dir", default="data/repos", help="Directorio con repositorios")
@@ -128,6 +136,10 @@ def run_all(config, repos_dir, output_dir, workers):
     click.echo("\n[4/5] 🔍 Analizando código...")
     analyzer = CodeQLAnalyzer(repos_dir, output_dir, max_workers=max_workers)
     analyzer.run()
+
+    click.echo("\n[4.5/5] 🧠 Caracterizando vulnerabilidades (Analyzer)...")
+    logic_analyzer = VulnerabilityAnalyzer(output_dir)
+    logic_analyzer.run()
 
     click.echo("\n[5/5] 📊 Generando reporte...")
     report_gen = ReportGenerator(output_dir)

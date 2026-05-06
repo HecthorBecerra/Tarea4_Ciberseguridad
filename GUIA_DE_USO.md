@@ -10,10 +10,12 @@ Guía completa paso a paso para analizar vulnerabilidades de repositorios usando
 2. [Abrir el Proyecto en Dev Container](#-2-abrir-el-proyecto-en-dev-container)
 3. [Configurar Repositorios](#-3-configurar-repositorios-a-analizar)
 4. [Ejecutar Análisis de Seguridad](#-4-ejecutar-análisis-de-seguridad)
-5. [Interpretar los Resultados](#-5-interpretar-los-resultados)
-6. [Usar los Notebooks Jupyter](#-6-usar-los-notebooks-jupyter)
-7. [Comandos de Referencia Rápida](#-7-comandos-de-referencia-rápida)
-8. [Troubleshooting](#-8-troubleshooting)
+5. [🚀 Ejecución Simultánea (Modo Demo)](#-5-ejecución-simultánea-modo-demo)
+6. [📊 Interpretar los Resultados](#-6-interpretar-los-resultados)
+7. [📓 Usar los Notebooks Jupyter](#-7-usar-los-notebooks-jupyter)
+8. [🖥️ Usar el Visualizer (Dashboard Interactivo)](#-8-usar-el-visualizer-dashboard-interactivo)
+9. [⚡ Comandos de Referencia Rápida](#-9-comandos-de-referencia-rápida)
+10. [🆘 Troubleshooting](#-10-troubleshooting)
 
 ---
 
@@ -210,6 +212,7 @@ Commands:
   sbom     📦 Generar SBOMs con Syft
   grype    🔓 Escanear vulnerabilidades con Grype
   codeql   🔍 Analizar código con CodeQL
+  analyze  🧠 Caracterizar vulnerabilidades (Analyzer)
   report   📊 Generar reporte consolidado
   all      🚀 Ejecutar pipeline completo
 ```
@@ -288,6 +291,8 @@ Después de ejecutar los análisis, los resultados estarán en `data/results/`:
 ```
 data/results/
 ├── clone-log.json                 # Log de repos clonados
+├── analysis_summary.json          # Resumen lógico del Analyzer 🧠
+├── vulnerabilities_dataset.csv    # Dataset estructurado para el Visualizer
 ├── sbom-summary.json              # Resumen de SBOMs
 ├── grype-summary.json             # Resumen de vulnerabilidades
 ├── codeql-summary.json            # Resumen de análisis estático
@@ -305,8 +310,11 @@ data/results/
 # Resumen de clonación
 cat data/results/clone-log.json | python -m json.tool
 
-# Resumen de vulnerabilidades
+# Resumen de vulnerabilidades (Grype)
 cat data/results/grype-summary.json | python -m json.tool
+
+# Resumen del Analyzer
+cat data/results/analysis_summary.json | python -m json.tool
 
 # Reporte consolidado
 cat data/results/consolidated-report.json | python -m json.tool
@@ -325,9 +333,8 @@ for match in data.get('matches', [])[:10]:
 "
 ```
 
----
 
-## 📓 6. Usar los Notebooks Jupyter
+## 📓 7. Usar los Notebooks Jupyter
 
 ### ⭐ Notebook principal: `05_analisis_cuantitativo.ipynb`
 
@@ -360,9 +367,32 @@ Este es el notebook más importante para la **Parte 3 de la actividad**. Contien
 | `04_sbom_generacion.ipynb` | Explorar componentes de SBOMs |
 | **`05_analisis_cuantitativo.ipynb`** | **📊 Análisis completo (Parte 3)** |
 
+
 ---
 
-## ⚡ 7. Comandos de Referencia Rápida
+## 🖥️ 8. Usar el Visualizer (Dashboard Interactivo)
+
+El proyecto incluye una aplicación web (frontend) construida para visualizar interactivamente las vulnerabilidades procesadas por el Analyzer.
+
+Asegúrate de haber ejecutado `uv run python main.py analyze` previamente para generar los datos consolidados (`visualizer/public/data.json`).
+
+Para iniciar el Visualizer:
+
+```bash
+# 1. Entrar al directorio del frontend
+cd visualizer
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Levantar el servidor de desarrollo
+npm run dev
+```
+Abre la URL local que aparece en la terminal (usualmente `http://localhost:5173`) en tu navegador para ver los gráficos interactivos y tablas del proyecto.
+
+---
+
+## ⚡ 9. Comandos de Referencia Rápida
 
 ### 🏃 Flujo express (4 comandos)
 
@@ -388,6 +418,7 @@ uv run python main.py all
 | 📦 Generar SBOM | `uv run python main.py sbom` |
 | 🔓 Escanear vulnerabilidades | `uv run python main.py grype` |
 | 🔍 Análisis estático | `uv run python main.py codeql` |
+| 🧠 Ejecutar Analyzer | `uv run python main.py analyze` |
 | 📊 Generar reporte | `uv run python main.py report` |
 | 🚀 Ejecutar todo | `uv run python main.py all` |
 | ❓ Ver ayuda | `uv run python main.py --help` |
@@ -407,7 +438,7 @@ codeql version && grype version && syft version
 
 ---
 
-## 🆘 8. Troubleshooting
+## 🆘 10. Troubleshooting
 
 ### El Dev Container no inicia
 
@@ -453,6 +484,10 @@ uv run python main.py clone
 uv run python main.py sbom
 uv run python main.py grype
 uv run python main.py report
+
+# Si quieres incluir el Analyzer después de los escaneos:
+uv run python main.py analyze
+
 ```
 
 ### Grype falla al actualizar la base de datos

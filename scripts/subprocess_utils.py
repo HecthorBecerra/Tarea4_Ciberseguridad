@@ -1,85 +1,26 @@
-#!/usr/bin/env python
-"""Utilidades centralizadas para ejecución de subprocesos.
-
-Provee una función `run_command()` y un dataclass `CommandResult`
-que eliminan la repetición de manejo de excepciones en todos los scripts.
-"""
-
-from __future__ import annotations
-
 import subprocess
-from dataclasses import dataclass, field
+from collections import namedtuple
+
+CommandResult = namedtuple(
+    "CommandResult", ["success", "stdout", "stderr", "error_message"])
 
 
-@dataclass(frozen=True, slots=True)
-class CommandResult:
-    """Resultado inmutable de la ejecución de un comando externo."""
-    returncode: int
-    stdout: str
-    stderr: str
-    success: bool
-    error_message: str | None = field(default=None)
-
-    @property
-    def failed(self) -> bool:
-        return not self.success
-
-
-def run_command(
-    cmd: list[str],
-    *,
-    timeout: int = 300,
-    cwd: str | None = None,
-) -> CommandResult:
-    """Ejecuta un comando externo con manejo robusto de errores.
-
-    Args:
-        cmd: Lista de argumentos del comando (e.g. ["git", "clone", ...]).
-        timeout: Tiempo máximo de ejecución en segundos.
-        cwd: Directorio de trabajo para el comando.
-
-    Returns:
-        CommandResult con returncode, stdout, stderr, success y error_message.
-    """
+def run_command(cmd: list[str], timeout: int = 600) -> CommandResult:
+    """Ejecuta un comando y captura su salida y errores."""
     try:
-        result = subprocess.run(
+        process = subprocess.run(
             cmd,
             capture_output=True,
             text=True,
-            timeout=timeout,
-            cwd=cwd,
+            check=True,
+            timeout=timeout
         )
-        return CommandResult(
-            returncode=result.returncode,
-            stdout=result.stdout,
-            stderr=result.stderr,
-            success=(result.returncode == 0),
-        )
-
+        return CommandResult(True, process.stdout, process.stderr, None)
+    except subprocess.CalledProcessError as e:
+        return CommandResult(False, e.stdout, e.stderr, f"Command failed with exit code {e.returncode}: {e.stderr}")
     except subprocess.TimeoutExpired:
-        return CommandResult(
-            returncode=-1,
-            stdout="",
-            stderr="",
-            success=False,
-            error_message=f"Timeout después de {timeout}s ejecutando: {' '.join(cmd[:3])}...",
-        )
-
+        return CommandResult(False, None, None, f"Timeout: Command exceeded {timeout} seconds.")
     except FileNotFoundError:
-        tool_name = cmd[0] if cmd else "unknown"
-        return CommandResult(
-            returncode=-1,
-            stdout="",
-            stderr="",
-            success=False,
-            error_message=f"Herramienta no encontrada: '{tool_name}'. ¿Está instalada y en PATH?",
-        )
-
-    except OSError as exc:
-        return CommandResult(
-            returncode=-1,
-            stdout="",
-            stderr="",
-            success=False,
-            error_message=f"Error del sistema ejecutando comando: {exc}",
-        )
+        return CommandResult(False, None, None, f"Command not found: {cmd[0]}")
+    except Exception as e:
+        return CommandResult(False, None, None, f"An unexpected error occurred: {e}")

@@ -8,7 +8,7 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from rich.console import Console
 
-from subprocess_utils import run_command
+from .subprocess_utils import run_command
 
 console = Console()
 _print_lock = threading.Lock()
@@ -102,7 +102,8 @@ class CodeQLAnalyzer:
             languages = self._detect_languages(repo_path)
 
             if not languages:
-                _safe_print(f"  [yellow]! No se detectaron lenguajes soportados (umbral mínimo: 5 archivos)[/yellow]")
+                _safe_print(
+                    f"  [yellow]! No se detectaron lenguajes soportados (umbral mínimo: 5 archivos)[/yellow]")
                 return {
                     "repo": repo_name,
                     "status": "skipped",
@@ -112,14 +113,18 @@ class CodeQLAnalyzer:
             # Solo analizar el lenguaje principal si esta habilitado
             if self.primary_language_only:
                 languages = languages[:1]
-                _safe_print(f"  [blue]  Lenguaje principal: {languages[0]}[/blue]")
+                _safe_print(
+                    f"  [blue]  Lenguaje principal: {languages[0]}[/blue]")
             else:
-                _safe_print(f"  [blue]  Lenguajes detectados: {', '.join(languages)}[/blue]")
+                _safe_print(
+                    f"  [blue]  Lenguajes detectados: {', '.join(languages)}[/blue]")
 
             # Timeout adaptativo segun tamano del repo
             db_timeout = self._estimate_timeout(repo_path)
-            _safe_print(f"  [blue]  Timeout estimado: {db_timeout // 60} min[/blue]")
-            _safe_print(f"  [blue]  Threads: {self._threads} | RAM: {self._ram_mb} MB[/blue]")
+            _safe_print(
+                f"  [blue]  Timeout estimado: {db_timeout // 60} min[/blue]")
+            _safe_print(
+                f"  [blue]  Threads: {self._threads} | RAM: {self._ram_mb} MB[/blue]")
 
             # Query suites: security-extended es ~3x mas rapido que security-and-quality
             # (54 vs 176 queries) y cubre las vulnerabilidades relevantes
@@ -156,14 +161,17 @@ class CodeQLAnalyzer:
 
                 if result.failed:
                     error_detail = result.error_message or result.stderr[:200]
-                    _safe_print(f"  [red]✗ Error creando BD para {lang}: {error_detail[:100]}[/red]")
-                    errors.append({"language": lang, "phase": "create", "error": error_detail})
+                    _safe_print(
+                        f"  [red]✗ Error creando BD para {lang}: {error_detail[:100]}[/red]")
+                    errors.append(
+                        {"language": lang, "phase": "create", "error": error_detail})
                     continue  # Continuar con el siguiente lenguaje
 
                 # Paso 3: Analizar la BD creada
                 _safe_print(f"  [yellow]→ Analizando {lang}...[/yellow]")
 
-                sarif_file = self.output_dir / f"{repo_name}-{lang}-codeql.sarif"
+                sarif_file = self.output_dir / \
+                    f"{repo_name}-{lang}-codeql.sarif"
                 query_pack = query_packs.get(lang, f"codeql/{lang}-queries")
 
                 cmd = [
@@ -184,16 +192,20 @@ class CodeQLAnalyzer:
                     findings = self._parse_sarif(sarif_file)
                     all_findings.extend(findings)
                     successful_langs.append(lang)
-                    _safe_print(f"  [green]✓ {lang}: {len(findings)} hallazgo(s)[/green]")
+                    _safe_print(
+                        f"  [green]✓ {lang}: {len(findings)} hallazgo(s)[/green]")
                 else:
                     error_detail = result.error_message or result.stderr[:200]
-                    _safe_print(f"  [red]✗ Error analizando {lang}: {error_detail[:100]}[/red]")
-                    errors.append({"language": lang, "phase": "analyze", "error": error_detail})
+                    _safe_print(
+                        f"  [red]✗ Error analizando {lang}: {error_detail[:100]}[/red]")
+                    errors.append(
+                        {"language": lang, "phase": "analyze", "error": error_detail})
 
             # Paso 4: Consolidar resultados
             if successful_langs:
                 with open(results_file, "w") as f:
-                    json.dump({"findings": all_findings, "total": len(all_findings)}, f, indent=2)
+                    json.dump({"findings": all_findings,
+                              "total": len(all_findings)}, f, indent=2)
 
                 _safe_print(f"[green]✓ Análisis completado para {repo_name}: "
                             f"{len(all_findings)} hallazgo(s) en {', '.join(successful_langs)}[/green]")
@@ -209,7 +221,8 @@ class CodeQLAnalyzer:
                     result_dict["errors"] = errors
                 return result_dict
             else:
-                _safe_print(f"[red]✗ No se pudo analizar ningún lenguaje en {repo_name}[/red]")
+                _safe_print(
+                    f"[red]✗ No se pudo analizar ningún lenguaje en {repo_name}[/red]")
                 return {
                     "repo": repo_name,
                     "status": "error",
@@ -228,8 +241,10 @@ class CodeQLAnalyzer:
 
             findings = []
             for run in sarif.get("runs", []):
-                tool_name = run.get("tool", {}).get("driver", {}).get("name", "unknown")
-                rules = {r["id"]: r for r in run.get("tool", {}).get("driver", {}).get("rules", [])}
+                tool_name = run.get("tool", {}).get(
+                    "driver", {}).get("name", "unknown")
+                rules = {r["id"]: r for r in run.get(
+                    "tool", {}).get("driver", {}).get("rules", [])}
 
                 for result in run.get("results", []):
                     rule_id = result.get("ruleId", "unknown")
@@ -310,10 +325,12 @@ class CodeQLAnalyzer:
         }
 
         if qualified:
-            _safe_print(f"  [dim]  Conteo de archivos: {dict(sorted(language_counts.items(), key=lambda x: -x[1]))}[/dim]")
+            _safe_print(
+                f"  [dim]  Conteo de archivos: {dict(sorted(language_counts.items(), key=lambda x: -x[1]))}[/dim]")
             if len(language_counts) > len(qualified):
                 skipped = set(language_counts) - set(qualified)
-                _safe_print(f"  [dim]  Lenguajes descartados (< {min_files} archivos): {skipped}[/dim]")
+                _safe_print(
+                    f"  [dim]  Lenguajes descartados (< {min_files} archivos): {skipped}[/dim]")
 
         # Ordenar por cantidad descendente (el principal primero)
         return sorted(qualified.keys(), key=lambda l: qualified[l], reverse=True)
@@ -332,7 +349,8 @@ class CodeQLAnalyzer:
 
         workers = self.max_workers
         mode = f"paralelo ({workers} workers)" if workers > 1 else "secuencial"
-        _safe_print(f"\n[blue]🔍 Analizando {len(repos)} repositorio(s) — modo {mode}...[/blue]")
+        _safe_print(
+            f"\n[blue]🔍 Analizando {len(repos)} repositorio(s) — modo {mode}...[/blue]")
 
         results = []
         if workers > 1:
@@ -355,12 +373,14 @@ class CodeQLAnalyzer:
 
         _safe_print(f"\n[blue]Resumen guardado en:[/blue] {summary_file}")
 
+
 def main():
     repos_dir = "data/repos"
     output_dir = "data/results"
 
     analyzer = CodeQLAnalyzer(repos_dir, output_dir)
     analyzer.run()
+
 
 if __name__ == "__main__":
     main()

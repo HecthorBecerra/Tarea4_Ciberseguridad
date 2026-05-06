@@ -28,6 +28,5 @@
         }
     },
     "postCreateCommand": "uv sync && uv run python -m ipykernel install --user --name security-analyzer --display-name 'Python (security-analyzer)' && grype db update || true && cd visualizer && npm install",
-    "remoteUser": "vscode",
-    "runArgs": ["--name", "security-analyzer-dev-container"]
+    "remoteUser": "vscode"
 }

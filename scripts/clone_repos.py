@@ -16,7 +16,7 @@ except ImportError:
     print("Error: 'requests' no está instalado. Ejecuta: uv sync")
     sys.exit(1)
 
-from subprocess_utils import run_command
+from .subprocess_utils import run_command
 
 console = Console()
 _print_lock = threading.Lock()
@@ -63,7 +63,8 @@ class RepoCloner:
 
     def _get_org_repos(self, org_name: str) -> list:
         """Obtiene la lista de repositorios de una organización de GitHub"""
-        _safe_print(f"\n[cyan]Obteniendo repositorios de la organización:[/cyan] {org_name}")
+        _safe_print(
+            f"\n[cyan]Obteniendo repositorios de la organización:[/cyan] {org_name}")
 
         repos = []
         page = 1
@@ -76,11 +77,14 @@ class RepoCloner:
             response = requests.get(url, timeout=30)
 
             if response.status_code == 403:
-                _safe_print("[yellow]⚠ Límite de API de GitHub alcanzado. Usa un token para más requests.[/yellow]")
-                _safe_print("[yellow]  Exporta: GITHUB_TOKEN=tu_token[/yellow]")
+                _safe_print(
+                    "[yellow]⚠ Límite de API de GitHub alcanzado. Usa un token para más requests.[/yellow]")
+                _safe_print(
+                    "[yellow]  Exporta: GITHUB_TOKEN=tu_token[/yellow]")
                 break
             elif response.status_code != 200:
-                _safe_print(f"[red]✗ Error al obtener repos de {org_name}: {response.status_code}[/red]")
+                _safe_print(
+                    f"[red]✗ Error al obtener repos de {org_name}: {response.status_code}[/red]")
                 break
 
             page_repos = response.json()
@@ -117,7 +121,8 @@ class RepoCloner:
 
             page += 1
 
-        _safe_print(f"[green]  → {len(repos)} repositorios activos encontrados[/green]")
+        _safe_print(
+            f"[green]  → {len(repos)} repositorios activos encontrados[/green]")
         return repos
 
     def _clone_repo(self, clone_url: str, repo_name: str = None) -> dict:
@@ -131,7 +136,8 @@ class RepoCloner:
         dest_path = self.repos_dir / repo_name
 
         if dest_path.exists():
-            _safe_print(f"  [yellow]⟳ Ya existe, actualizando:[/yellow] {repo_name}")
+            _safe_print(
+                f"  [yellow]⟳ Ya existe, actualizando:[/yellow] {repo_name}")
             result = run_command(
                 ["git", "-C", str(dest_path), "pull", "--ff-only"],
                 timeout=120,
@@ -172,16 +178,19 @@ class RepoCloner:
 
     def run(self):
         """Ejecuta el proceso de clonación"""
-        _safe_print("[bold cyan]═══════════════════════════════════════[/bold cyan]")
+        _safe_print(
+            "[bold cyan]═══════════════════════════════════════[/bold cyan]")
         _safe_print("[bold cyan]  CLONADOR DE REPOSITORIOS[/bold cyan]")
-        _safe_print("[bold cyan]═══════════════════════════════════════[/bold cyan]")
+        _safe_print(
+            "[bold cyan]═══════════════════════════════════════[/bold cyan]")
 
         all_urls = []
 
         # 1) Repositorios individuales del config
         individual_repos = self.config.get("repositories", [])
         if individual_repos:
-            _safe_print(f"\n[blue]📋 {len(individual_repos)} repositorio(s) individual(es) configurado(s)[/blue]")
+            _safe_print(
+                f"\n[blue]📋 {len(individual_repos)} repositorio(s) individual(es) configurado(s)[/blue]")
             for url in individual_repos:
                 all_urls.append({"clone_url": url, "name": None})
 
@@ -197,14 +206,17 @@ class RepoCloner:
                     })
 
         if not all_urls:
-            _safe_print("\n[yellow]⚠ No hay repositorios configurados.[/yellow]")
-            _safe_print("[yellow]  Edita data/config.json para agregar URLs o nombres de organizaciones.[/yellow]")
+            _safe_print(
+                "\n[yellow]⚠ No hay repositorios configurados.[/yellow]")
+            _safe_print(
+                "[yellow]  Edita data/config.json para agregar URLs o nombres de organizaciones.[/yellow]")
             return
 
         # 3) Clonar todos (en paralelo o secuencial)
         workers = self.max_workers if self.parallel_enabled else 1
         mode = f"paralelo ({workers} workers)" if workers > 1 else "secuencial"
-        _safe_print(f"\n[blue]🔄 Clonando {len(all_urls)} repositorio(s) — modo {mode}...[/blue]")
+        _safe_print(
+            f"\n[blue]🔄 Clonando {len(all_urls)} repositorio(s) — modo {mode}...[/blue]")
 
         if workers > 1:
             with ThreadPoolExecutor(max_workers=workers) as executor:
@@ -216,7 +228,8 @@ class RepoCloner:
                     self.results.append(future.result())
         else:
             for repo_info in all_urls:
-                result = self._clone_repo(repo_info["clone_url"], repo_info.get("name"))
+                result = self._clone_repo(
+                    repo_info["clone_url"], repo_info.get("name"))
                 self.results.append(result)
 
         # 4) Mostrar resumen
@@ -249,9 +262,12 @@ class RepoCloner:
 
         console.print(table)
 
-        cloned = sum(1 for r in self.results if r["status"] in ("cloned", "updated"))
-        errors = sum(1 for r in self.results if r["status"] in ("error", "timeout"))
-        console.print(f"\n[green]✓ {cloned} exitosos[/green]  [red]✗ {errors} errores[/red]")
+        cloned = sum(1 for r in self.results if r["status"] in (
+            "cloned", "updated"))
+        errors = sum(1 for r in self.results if r["status"] in (
+            "error", "timeout"))
+        console.print(
+            f"\n[green]✓ {cloned} exitosos[/green]  [red]✗ {errors} errores[/red]")
 
     def _save_log(self):
         """Guarda log de clonación"""

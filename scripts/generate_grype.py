@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from rich.console import Console
 from rich.table import Table
 
-from subprocess_utils import run_command
+from .subprocess_utils import run_command
 
 console = Console()
 _print_lock = threading.Lock()
@@ -42,7 +42,8 @@ class GrypeScanner:
             _safe_print(f"[dim]  → usando SBOM: {sbom_file.name}[/dim]")
         else:
             scan_target = str(repo_path)
-            _safe_print(f"[yellow]  → SBOM no encontrado, escaneando directorio[/yellow]")
+            _safe_print(
+                f"[yellow]  → SBOM no encontrado, escaneando directorio[/yellow]")
 
         cmd = [
             "grype",
@@ -63,7 +64,8 @@ class GrypeScanner:
                 except (json.JSONDecodeError, IOError):
                     vuln_count = 0
 
-                _safe_print(f"[green]✓ Escaneo completado:[/green] {vuln_count} vulnerabilidades encontradas")
+                _safe_print(
+                    f"[green]✓ Escaneo completado:[/green] {vuln_count} vulnerabilidades encontradas")
 
                 return {
                     "repo": repo_name,
@@ -76,7 +78,8 @@ class GrypeScanner:
             _safe_print(f"[red]✗ Timeout escaneando {repo_name}[/red]")
             return {"repo": repo_name, "status": "timeout"}
 
-        _safe_print(f"[yellow]! Escaneo completado sin vulnerabilidades[/yellow]")
+        _safe_print(
+            f"[yellow]! Escaneo completado sin vulnerabilidades[/yellow]")
         return {
             "repo": repo_name,
             "status": "success",
@@ -87,11 +90,13 @@ class GrypeScanner:
     def run(self):
         """Ejecuta escaneo para todos los repositorios"""
         _safe_print("[bold cyan]═══════════════════════════════[/bold cyan]")
-        _safe_print("[bold cyan]ESCANER DE VULNERABILIDADES - Grype[/bold cyan]")
+        _safe_print(
+            "[bold cyan]ESCANER DE VULNERABILIDADES - Grype[/bold cyan]")
         _safe_print("[bold cyan]═══════════════════════════════[/bold cyan]")
 
         # Actualizar base de datos (SIEMPRE secuencial, antes de cualquier escaneo)
-        _safe_print("\n[yellow]Actualizando base de datos de Grype...[/yellow]")
+        _safe_print(
+            "\n[yellow]Actualizando base de datos de Grype...[/yellow]")
         run_command(["grype", "db", "update"], timeout=120)
 
         repos = [d for d in self.repos_dir.iterdir() if d.is_dir()]
@@ -102,7 +107,8 @@ class GrypeScanner:
 
         workers = self.max_workers
         mode = f"paralelo ({workers} workers)" if workers > 1 else "secuencial"
-        _safe_print(f"\n[blue]🔓 Escaneando {len(repos)} repositorio(s) — modo {mode}...[/blue]")
+        _safe_print(
+            f"\n[blue]🔓 Escaneando {len(repos)} repositorio(s) — modo {mode}...[/blue]")
 
         results = []
         if workers > 1:
@@ -138,12 +144,14 @@ class GrypeScanner:
 
         _safe_print(f"\n[blue]Resumen guardado en:[/blue] {summary_file}")
 
+
 def main():
     repos_dir = "data/repos"
     output_dir = "data/results"
 
     scanner = GrypeScanner(repos_dir, output_dir)
     scanner.run()
+
 
 if __name__ == "__main__":
     main()

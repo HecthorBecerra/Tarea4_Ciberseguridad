@@ -1,0 +1,5208 @@
+{
+  "summary": {
+    "total_vulnerabilities": 646,
+    "severity_distribution": {
+      "MEDIUM": 255,
+      "HIGH": 190,
+      "LOW": 190,
+      "ERROR": 10,
+      "CRITICAL": 1
+    },
+    "type_distribution": {
+      "Dependency": 636,
+      "Static Analysis": 10
+    },
+    "top_vulnerable_repos": {
+      "dataset-viewer": 623,
+      "kernels": 12,
+      "sentence-transformers": 6,
+      "transformers": 5
+    },
+    "most_common_categories": {
+      "CWE-770": 104,
+      "Unknown": 72,
+      "CWE-400": 43,
+      "CWE-59": 43,
+      "CWE-409": 42,
+      "CWE-113": 36,
+      "CWE-22": 29,
+      "CWE-502": 24,
+      "CWE-444": 24,
+      "CWE-345": 20
+    },
+    "patterns": [
+      "El mayor riesgo crítico proviene de: Dependency",
+      "Repositorios significativamente sobre el promedio: dataset-viewer"
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-39mp-8hj3-5c49",
+      "severity": "HIGH",
+      "category": "CWE-36",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wp53-j4wj-2cfg",
+      "severity": "HIGH",
+      "category": "CWE-22",
+      "package": "python-multipart"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-8jw3-6x8j-v96g",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-rvgh-pr46-x7gg",
+      "severity": "HIGH",
+      "category": "CWE-1333",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wj6h-64fc-37mp",
+      "severity": "HIGH",
+      "category": "CWE-203",
+      "package": "ecdsa"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-7xmc-vhjp-qv5q",
+      "severity": "HIGH",
+      "category": "CWE-475",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-7f5h-v6xp-fcq8",
+      "severity": "HIGH",
+      "category": "CWE-407",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-7f5h-v6xp-fcq8",
+      "severity": "HIGH",
+      "category": "CWE-407",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-7f5h-v6xp-fcq8",
+      "severity": "HIGH",
+      "category": "CWE-407",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-7f5h-v6xp-fcq8",
+      "severity": "HIGH",
+      "category": "CWE-407",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5cpq-9538-jm2j",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-79v4-65xg-pq4g",
+      "severity": "LOW",
+      "category": "CWE-392",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pgfv-gvc5-prfg",
+      "severity": "HIGH",
+      "category": "CWE-29",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-prpg-p95c-32fv",
+      "severity": "MEDIUM",
+      "category": "CWE-22",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-8c87-gvhj-xm8m",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-xh2x-3mrm-fwqm",
+      "severity": "HIGH",
+      "category": "CWE-362",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6xvm-j4wr-6v98",
+      "severity": "HIGH",
+      "category": "CWE-248",
+      "package": "quinn-proto"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-576c-3j53-r9jj",
+      "severity": "MEDIUM",
+      "category": "CWE-918",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gvv6-33j7-884g",
+      "severity": "MEDIUM",
+      "category": "CWE-79",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-77xq-6g77-h274",
+      "severity": "MEDIUM",
+      "category": "CWE-22",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2c2j-9gv5-cj73",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2c2j-9gv5-cj73",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2c2j-9gv5-cj73",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2c2j-9gv5-cj73",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2c2j-9gv5-cj73",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2c2j-9gv5-cj73",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2c2j-9gv5-cj73",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2c2j-9gv5-cj73",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4q3c-cj7g-jcwf",
+      "severity": "MEDIUM",
+      "category": "CWE-200",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f96h-pmfr-66vw",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f96h-pmfr-66vw",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f96h-pmfr-66vw",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f96h-pmfr-66vw",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f96h-pmfr-66vw",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f96h-pmfr-66vw",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f96h-pmfr-66vw",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f96h-pmfr-66vw",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "starlette"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-j2jg-fq62-7c3h",
+      "severity": "CRITICAL",
+      "category": "CWE-285",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wf5f-4jwr-ppcp",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-89v2-pqfv-c5r9",
+      "severity": "MEDIUM",
+      "category": "CWE-285",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-c427-h43c-vf67",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-428g-f7cq-pgp5",
+      "severity": "MEDIUM",
+      "category": "CWE-405",
+      "package": "marshmallow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-279j-x4gx-hfrh",
+      "severity": "HIGH",
+      "category": "CWE-311",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-f83h-ghpp-7wcc",
+      "severity": "HIGH",
+      "category": "CWE-502",
+      "package": "pdfminer-six"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-768j-98cg-p3fv",
+      "severity": "MEDIUM",
+      "category": "CWE-91",
+      "package": "fonttools"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-p998-jp59-783m",
+      "severity": "MEDIUM",
+      "category": "CWE-36",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "severity": "MEDIUM",
+      "category": "CWE-835",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m5qp-6w8w-w647",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "severity": "MEDIUM",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2qfp-q593-8484",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "brotli"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-38jv-5279-wg99",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-9f5j-8jwj-x28g",
+      "severity": "MEDIUM",
+      "category": "CWE-20",
+      "package": "ecdsa"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hx9q-6w63-j58v",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "orjson"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-54jq-c3m8-4m76",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "severity": "HIGH",
+      "category": "CWE-770",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3936-cmfr-pm3m",
+      "severity": "HIGH",
+      "category": "CWE-22",
+      "package": "black"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "severity": "LOW",
+      "category": "CWE-770",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hgf8-39gv-g3f2",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hgf8-39gv-g3f2",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hgf8-39gv-g3f2",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-hgf8-39gv-g3f2",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-966j-vmvw-g2g9",
+      "severity": "LOW",
+      "category": "CWE-200",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jmh7-g254-2cq9",
+      "severity": "HIGH",
+      "category": "CWE-918",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "severity": "LOW",
+      "category": "CWE-444",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "severity": "LOW",
+      "category": "CWE-113",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-87hc-h4r5-73f7",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-87hc-h4r5-73f7",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-87hc-h4r5-73f7",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-87hc-h4r5-73f7",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-29vq-49wr-vm6x",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-29vq-49wr-vm6x",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-29vq-49wr-vm6x",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-29vq-49wr-vm6x",
+      "severity": "MEDIUM",
+      "category": "CWE-67",
+      "package": "werkzeug"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-vvp9-7p8x-rfvv",
+      "severity": "HIGH",
+      "category": "CWE-201",
+      "package": "lz4_flex"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "severity": "HIGH",
+      "category": "CWE-409",
+      "package": "urllib3"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-4xh5-x5gv-qwph",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cfh3-3jmp-rvhc",
+      "severity": "HIGH",
+      "category": "CWE-787",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mj87-hwqh-73pj",
+      "severity": "MEDIUM",
+      "category": "CWE-400",
+      "package": "python-multipart"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-434x-w66g-qw3r",
+      "severity": "MEDIUM",
+      "category": "CWE-680",
+      "package": "bytes"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-752w-5fwx-jx9f",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "pyjwt"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-752w-5fwx-jx9f",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "pyjwt"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-752w-5fwx-jx9f",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "pyjwt"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-752w-5fwx-jx9f",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "pyjwt"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-752w-5fwx-jx9f",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "pyjwt"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-752w-5fwx-jx9f",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "pyjwt"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-752w-5fwx-jx9f",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "pyjwt"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-h3h8-3v2v-rg7m",
+      "severity": "LOW",
+      "category": "CWE-522",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-58qw-9mgm-455v",
+      "severity": "MEDIUM",
+      "category": "CWE-434",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "severity": "HIGH",
+      "category": "CWE-345",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6vgw-5pg2-w6jp",
+      "severity": "LOW",
+      "category": "CWE-22",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r5pr-887v-m2w9",
+      "severity": "LOW",
+      "category": "CWE-79",
+      "package": "memray"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-mf9w-mj56-hr94",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "python-dotenv"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pfjf-5gxr-995x",
+      "severity": "MEDIUM",
+      "category": "CWE-200",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-fh55-r93g-j68g",
+      "severity": "LOW",
+      "category": "CWE-779",
+      "package": "aiohttp"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-m959-cc7f-wv43",
+      "severity": "LOW",
+      "category": "CWE-295",
+      "package": "cryptography"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "severity": "MEDIUM",
+      "category": "CWE-377",
+      "package": "requests"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-w853-jp5j-5j7f",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-rpm5-65cw-6hj4",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "gitpython"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-x2qx-6953-8485",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "gitpython"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-82j2-j2ch-gfr8",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "rustls-webpki"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-5xmw-vc9v-4wf2",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-pwjx-qhcg-rvj4",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "rustls-webpki"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-26jh-r8g2-6fpr",
+      "severity": "LOW",
+      "category": "Unknown",
+      "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-cq8v-f236-94qc",
+      "severity": "LOW",
+      "category": "Unknown",
+      "package": "rand"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-965h-392x-2mh5",
+      "severity": "LOW",
+      "category": "Unknown",
+      "package": "rustls-webpki"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-xgp8-3hg3-c2mh",
+      "severity": "LOW",
+      "category": "Unknown",
+      "package": "rustls-webpki"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-3936-cmfr-pm3m",
+      "severity": "HIGH",
+      "category": "CWE-22",
+      "package": "black"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-whj4-6x5x-4v2j",
+      "severity": "HIGH",
+      "category": "CWE-400",
+      "package": "pillow"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-6w46-j5rx-g56g",
+      "severity": "MEDIUM",
+      "category": "CWE-379",
+      "package": "pytest"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-qmgc-5h2g-mvrw",
+      "severity": "MEDIUM",
+      "category": "CWE-59",
+      "package": "filelock"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-5239-wwwm-4pmq",
+      "severity": "LOW",
+      "category": "CWE-400",
+      "package": "pygments"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-rpm5-65cw-6hj4",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "gitpython"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-x2qx-6953-8485",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "gitpython"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-pwv6-vv43-88gr",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-5xmw-vc9v-4wf2",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-r73j-pqj5-w3x7",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-wjx4-4jcj-g98j",
+      "severity": "MEDIUM",
+      "category": "Unknown",
+      "package": "pillow"
+    },
+    {
+      "repo": "kernels",
+      "type": "Dependency",
+      "id": "GHSA-vxmw-7h4f-hqxh",
+      "severity": "LOW",
+      "category": "Unknown",
+      "package": "pypa/gh-action-pypi-publish"
+    },
+    {
+      "repo": "transformers",
+      "type": "Dependency",
+      "id": "GHSA-cxww-7g56-2vh6",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "actions/download-artifact"
+    },
+    {
+      "repo": "transformers",
+      "type": "Dependency",
+      "id": "GHSA-cxww-7g56-2vh6",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "actions/download-artifact"
+    },
+    {
+      "repo": "transformers",
+      "type": "Dependency",
+      "id": "GHSA-cxww-7g56-2vh6",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "actions/download-artifact"
+    },
+    {
+      "repo": "transformers",
+      "type": "Dependency",
+      "id": "GHSA-cxww-7g56-2vh6",
+      "severity": "HIGH",
+      "category": "Unknown",
+      "package": "actions/download-artifact"
+    },
+    {
+      "repo": "transformers",
+      "type": "Dependency",
+      "id": "GHSA-vxmw-7h4f-hqxh",
+      "severity": "LOW",
+      "category": "Unknown",
+      "package": "pypa/gh-action-pypi-publish"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Static Analysis",
+      "id": "py/clear-text-logging-sensitive-data",
+      "severity": "ERROR",
+      "category": "Clear-text logging of sensitive information",
+      "package": "Source Code"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Static Analysis",
+      "id": "py/partial-ssrf",
+      "severity": "ERROR",
+      "category": "Partial server-side request forgery",
+      "package": "Source Code"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Static Analysis",
+      "id": "py/partial-ssrf",
+      "severity": "ERROR",
+      "category": "Partial server-side request forgery",
+      "package": "Source Code"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Static Analysis",
+      "id": "py/partial-ssrf",
+      "severity": "ERROR",
+      "category": "Partial server-side request forgery",
+      "package": "Source Code"
+    },
+    {
+      "repo": "sentence-transformers",
+      "type": "Static Analysis",
+      "id": "py/tarslip",
+      "severity": "ERROR",
+      "category": "Arbitrary file write during tarfile extraction",
+      "package": "Source Code"
+    },
+    {
+      "repo": "sentence-transformers",
+      "type": "Static Analysis",
+      "id": "py/tarslip",
+      "severity": "ERROR",
+      "category": "Arbitrary file write during tarfile extraction",
+      "package": "Source Code"
+    },
+    {
+      "repo": "sentence-transformers",
+      "type": "Static Analysis",
+      "id": "py/tarslip",
+      "severity": "ERROR",
+      "category": "Arbitrary file write during tarfile extraction",
+      "package": "Source Code"
+    },
+    {
+      "repo": "sentence-transformers",
+      "type": "Static Analysis",
+      "id": "py/tarslip",
+      "severity": "ERROR",
+      "category": "Arbitrary file write during tarfile extraction",
+      "package": "Source Code"
+    },
+    {
+      "repo": "sentence-transformers",
+      "type": "Static Analysis",
+      "id": "py/tarslip",
+      "severity": "ERROR",
+      "category": "Arbitrary file write during tarfile extraction",
+      "package": "Source Code"
+    },
+    {
+      "repo": "sentence-transformers",
+      "type": "Static Analysis",
+      "id": "py/tarslip",
+      "severity": "ERROR",
+      "category": "Arbitrary file write during tarfile extraction",
+      "package": "Source Code"
+    }
+  ]
+}
