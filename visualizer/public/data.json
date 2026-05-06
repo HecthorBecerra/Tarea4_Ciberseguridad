@@ -1,19 +1,19 @@
 {
   "summary": {
-    "total_vulnerabilities": 646,
+    "total_vulnerabilities": 658,
     "severity_distribution": {
-      "MEDIUM": 255,
+      "MEDIUM": 267,
       "HIGH": 190,
       "LOW": 190,
       "ERROR": 10,
       "CRITICAL": 1
     },
     "type_distribution": {
-      "Dependency": 636,
+      "Dependency": 648,
       "Static Analysis": 10
     },
     "top_vulnerable_repos": {
-      "dataset-viewer": 623,
+      "dataset-viewer": 635,
       "kernels": 12,
       "sentence-transformers": 6,
       "transformers": 5
@@ -3347,6 +3347,102 @@
       "severity": "LOW",
       "category": "CWE-522",
       "package": "gradio"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
+    },
+    {
+      "repo": "dataset-viewer",
+      "type": "Dependency",
+      "id": "GHSA-jp4c-xjxw-mgf9",
+      "severity": "MEDIUM",
+      "category": "CWE-829",
+      "package": "pip"
     },
     {
       "repo": "dataset-viewer",

@@ -159,7 +159,7 @@ class CodeQLAnalyzer:
 
                 result = run_command(cmd, timeout=db_timeout)
 
-                if result.failed:
+                if not result.success:
                     error_detail = result.error_message or result.stderr[:200]
                     _safe_print(
                         f"  [red]✗ Error creando BD para {lang}: {error_detail[:100]}[/red]")

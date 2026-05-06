@@ -149,5 +149,85 @@ def run_all(config, repos_dir, output_dir, workers):
     click.echo(f"   Resultados en: {output_dir}/")
 
 
+@cli.command(name="stream")
+@click.option("--config", default="data/config.json", help="Ruta al archivo de configuración")
+@click.option("--repos-dir", default="data/repos", help="Directorio con repositorios")
+@click.option("--output-dir", default="data/results", help="Directorio de salida")
+def stream(config, repos_dir, output_dir):
+    """🌊 Ejecutar pipeline End-to-End por repositorio (Actualiza Visualizer en tiempo real)"""
+    from rich.console import Console
+    from scripts.subprocess_utils import run_command
+    console = Console()
+
+    console.print(
+        "\n[bold cyan]🌊 INICIANDO MODO STREAM (Cascada por Repositorio)[/bold cyan]")
+    console.print(
+        "Este modo clona, escanea y actualiza el Visualizer uno por uno.\n")
+
+    cloner = RepoCloner(config, max_workers=1)
+    sbom_gen = SBOMGenerator(repos_dir, output_dir, max_workers=1)
+    grype_scan = GrypeScanner(repos_dir, output_dir, max_workers=1)
+    codeql_analyzer = CodeQLAnalyzer(repos_dir, output_dir, max_workers=1)
+    logic_analyzer = VulnerabilityAnalyzer(output_dir)
+
+    # 1. Obtener URLs
+    all_urls = []
+    individual_repos = cloner.config.get("repositories", [])
+    for url in individual_repos:
+        all_urls.append({"clone_url": url, "name": None})
+
+    for org in cloner.config.get("organizations", []):
+        org_repos = cloner._get_org_repos(org)
+        for repo in org_repos:
+            all_urls.append(
+                {"clone_url": repo["clone_url"], "name": repo["name"]})
+
+    if not all_urls:
+        console.print(
+            "[yellow]⚠ No hay repositorios configurados en config.json.[/yellow]")
+        return
+
+    console.print(
+        f"[bold blue]📋 Total a procesar: {len(all_urls)} repositorios[/bold blue]")
+
+    # Actualizar BD de Grype al inicio para no repetirlo en cada repo
+    console.print(
+        "\n[yellow]Actualizando base de datos de Grype antes de empezar...[/yellow]")
+    run_command(["grype", "db", "update"], timeout=120)
+
+    # 2. Procesar uno a uno
+    for idx, item in enumerate(all_urls, 1):
+        repo_id = item.get("name") or item["clone_url"].rstrip(
+            "/").split("/")[-1]
+        if repo_id.endswith(".git"):
+            repo_id = repo_id[:-4]
+
+        console.print(
+            f"\n[bold magenta]► [{idx}/{len(all_urls)}] PROCESANDO REPOSITORIO: {repo_id}[/bold magenta]")
+        console.print(
+            "[bold magenta]──────────────────────────────────────────────────[/bold magenta]")
+
+        # Paso 1: Clonar
+        result = cloner._clone_repo(item["clone_url"], item.get("name"))
+        if result["status"] in ["cloned", "updated"] and "path" in result:
+            repo_path = Path(result["path"])
+
+            # Paso 2, 3 y 4: SBOM, Grype y CodeQL para ESTE repo en particular
+            sbom_gen.generate_sbom(repo_path)
+            grype_scan.scan_repo(repo_path)
+            codeql_analyzer.analyze_repo(repo_path)
+
+            # Paso 5: Analyzer (Re-escribe el data.json inyectando este nuevo repo)
+            console.print(
+                "\n[bold green]🔄 Actualizando Dashboard (Visualizer)...[/bold green]")
+            logic_analyzer.run()
+        else:
+            console.print(
+                f"[red]✗ Error al clonar/actualizar {repo_id}, saltando análisis.[/red]")
+
+    console.print(
+        "\n[bold green]🌊 ✅ MODO STREAM FINALIZADO CON ÉXITO.[/bold green]")
+
+
 if __name__ == "__main__":
     cli()

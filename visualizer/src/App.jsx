@@ -1,19 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   LayoutDashboard, ShieldAlert, Code2, Package,
   RefreshCw, AlertCircle, Loader2, Shield,
 } from 'lucide-react'
 import { useData } from './hooks/useData'
-import Dashboard  from './pages/Dashboard.jsx'
-import VulnPage   from './pages/VulnPage.jsx'
+
+import Dashboard from './pages/Dashboard.jsx'
+import VulnPage from './pages/VulnPage.jsx'
 import CodeQLPage from './pages/CodeQLPage.jsx'
-import SbomPage   from './pages/SbomPage.jsx'
+import SbomPage from './pages/SbomPage.jsx'
 
 const NAV = [
-  { id: 'dashboard',       label: 'Dashboard',  Icon: LayoutDashboard, accent: '#3d7fff' },
-  { id: 'vulnerabilities', label: 'CVEs',        Icon: ShieldAlert,     accent: '#ff3d52' },
-  { id: 'codeql',          label: 'CodeQL',       Icon: Code2,           accent: '#a855f7' },
-  { id: 'sbom',            label: 'SBOM',        Icon: Package,         accent: '#22d48e' },
+  { id: 'dashboard', label: 'Dashboard', Icon: LayoutDashboard, accent: '#3d7fff' },
+  { id: 'vulnerabilities', label: 'CVEs', Icon: ShieldAlert, accent: '#ff3d52' },
+  { id: 'codeql', label: 'CodeQL', Icon: Code2, accent: '#a855f7' },
+  { id: 'sbom', label: 'SBOM', Icon: Package, accent: '#22d48e' },
 ]
 
 function fmt(d) {
@@ -25,6 +26,12 @@ export default function App() {
   const [page, setPage] = useState('dashboard')
   const { data, loading, error, lastUpdated, reload } = useData()
 
+  // 🕒 CONFIGURAR AUTO-REFRESH CADA 5 SEGUNDOS
+  useEffect(() => {
+    const intervalId = setInterval(reload, 5000);
+    return () => clearInterval(intervalId);
+  }, [reload]);
+
   return (
     <div className="grain flex h-screen overflow-hidden bg-base text-ink font-mono">
 
@@ -35,7 +42,7 @@ export default function App() {
         <div className="px-5 pt-6 pb-5 border-b border-rim">
           <div className="flex items-center gap-2.5">
             <div className="w-7 h-7 rounded flex items-center justify-center"
-                 style={{ background: 'rgba(61,127,255,0.12)', border: '1px solid rgba(61,127,255,0.25)' }}>
+              style={{ background: 'rgba(61,127,255,0.12)', border: '1px solid rgba(61,127,255,0.25)' }}>
               <Shield size={13} style={{ color: '#3d7fff' }} />
             </div>
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-ink">VulnDash</span>
@@ -53,13 +60,12 @@ export default function App() {
                 <button
                   key={id}
                   onClick={() => setPage(id)}
-                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded text-[11px] font-medium transition-all duration-150 relative ${
-                    active ? 'text-ink bg-card' : 'text-ink-dim hover:text-ink hover:bg-card/60'
-                  }`}
+                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded text-[11px] font-medium transition-all duration-150 relative ${active ? 'text-ink bg-card' : 'text-ink-dim hover:text-ink hover:bg-card/60'
+                    }`}
                 >
                   {active && (
                     <span className="absolute left-0 top-1.5 bottom-1.5 w-[2px] rounded-r"
-                          style={{ backgroundColor: accent }} />
+                      style={{ backgroundColor: accent }} />
                   )}
                   <Icon size={13} style={{ color: active ? accent : undefined }} />
                   <span className="tracking-widest uppercase text-[10px]">{label}</span>
@@ -100,7 +106,7 @@ export default function App() {
         {error && !data && (
           <div className="flex flex-col items-center justify-center h-full gap-5 px-8 text-center">
             <div className="w-12 h-12 rounded flex items-center justify-center"
-                 style={{ background: 'rgba(255,61,82,0.1)', border: '1px solid rgba(255,61,82,0.25)' }}>
+              style={{ background: 'rgba(255,61,82,0.1)', border: '1px solid rgba(255,61,82,0.25)' }}>
               <AlertCircle style={{ color: '#ff3d52' }} size={20} />
             </div>
             <div>
@@ -121,10 +127,10 @@ export default function App() {
 
         {data && (
           <div className="animate-fade-in">
-            {page === 'dashboard'       && <Dashboard data={data} />}
-            {page === 'vulnerabilities' && <VulnPage   data={data} />}
-            {page === 'codeql'          && <CodeQLPage data={data} />}
-            {page === 'sbom'            && <SbomPage   data={data} />}
+            {page === 'dashboard' && <Dashboard data={data} />}
+            {page === 'vulnerabilities' && <VulnPage data={data} />}
+            {page === 'codeql' && <CodeQLPage data={data} />}
+            {page === 'sbom' && <SbomPage data={data} />}
           </div>
         )}
       </main>
